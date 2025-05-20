@@ -246,18 +246,20 @@ while True:
             print("1. Boas práticas de Segurança Digital")
             print("2. LGPD")
             print("3. Logica de programção com Python")
+            print("4. QUIZ")
             print("0. Sair para o menu principal")
 
             while True:
                 try:
                     opcaoAluno = int(input("Digite a opção: "))
-                    if opcaoAluno >= 4 or opcaoAluno < 0:
+                    if opcaoAluno >= 5 or opcaoAluno < 0:
                         raise ValueError
                     break
                 except ValueError:
                     print("\n\n1. Boas práticas de Segurança Digital")
                     print("2. LGPD")
                     print("3. Logica de programção com Python")
+                    print("4. QUIZ")
                     print("0. Sair para o menu principal")
                     print("\nEntrada inválida! Digite um número inteiro que está na lista")
 
@@ -454,8 +456,144 @@ while True:
             
             #QUIZ
             elif opcaoAluno == 4:
-                print("***QUIZ***")
-                
+
+                #Declarando Variáeis
+                decisaoQuiz = ""
+
+                while decisaoQuiz != 2:
+
+                    pontuacao = 0
+                    alternativas = ["a", "b" , "c", "d"]
+                    resp = ""
+
+                    print("\n📘 Quiz – Segurança Digital, LGPD e Programação em Python\n")
+
+                    # Pergunta 1 - Segurança Digital
+                    print("1. Qual das opções abaixo representa uma boa prática ao utilizar redes Wi-Fi públicas?")
+                    print("a) Realizar compras online sem proteção")
+                    print("b) Acessar e-mails importantes sem nenhuma segurança")
+                    print("c) Utilizar uma VPN confiável para proteger a conexão")
+                    print("d) Desativar o antivírus temporariamente")
+
+                    while True:
+                        try:
+                            resp = input("Sua resposta: ").lower().strip()
+                            if len(resp) != 1:
+                                raise ValueError
+                            elif resp not in alternativas:
+                                raise ValueError
+                            break
+                        except ValueError:
+                            print("Opção inválida. Tente novamente.")
+
+                    if resp == 'c':
+                        pontuacao += 2
+
+                    # Pergunta 2 - LGPD
+                    print("\n2. O que são dados sensíveis segundo a LGPD?")
+                    print("a) Dados sobre o consumo de internet do usuário")
+                    print("b) Informações que identificam uma pessoa como nome e endereço")
+                    print("c) Informações relacionadas à saúde, religião ou orientação sexual")
+                    print("d) Dados bancários como saldo e extrato")
+
+                    
+                    while True:
+                        try:
+                            resp = input("Sua resposta: ").lower().strip()
+                            if len(resp) != 1:
+                                raise ValueError
+                            elif resp not in alternativas:
+                                raise ValueError
+                            break
+                        except ValueError:
+                            print("Opção inválida. Tente novamente.")
+
+                    if resp == 'c':
+                        pontuacao += 2
+
+                    # Pergunta 3 - Segurança Digital
+                    print("\n3. O que é autenticação em dois fatores (2FA)?")
+                    print("a) Um antivírus instalado em dois dispositivos")
+                    print("b) Um processo de criptografia de arquivos em duas etapas")
+                    print("c) Um código adicional de verificação além da senha")
+                    print("d) A exigência de senha dupla para o mesmo login")
+
+                    while True:
+                        try:
+                            resp = input("Sua resposta: ").lower().strip()
+                            if len(resp) != 1:
+                                raise ValueError
+                            elif resp not in alternativas:
+                                raise ValueError
+                            break
+                        except ValueError:
+                            print("Opção inválida. Tente novamente.")
+
+                    if resp == 'c':
+                        pontuacao += 2
+
+                    # Pergunta 4 - Python: Estrutura de decisão
+                    print("\n4. Qual estrutura em Python é usada para tomar decisões com base em uma condição?")
+                    print("a) for")
+                    print("b) if")
+                    print("c) while")
+                    print("d) def")
+
+                    while True:
+                        try:
+                            resp = input("Sua resposta: ").lower().strip()
+                            if len(resp) != 1:
+                                raise ValueError
+                            elif resp not in alternativas:
+                                raise ValueError
+                            break
+                        except ValueError:
+                            print("Opção inválida. Tente novamente.")
+
+                    if resp == 'b':
+                        pontuacao += 2
+
+                    # Pergunta 5 - Python: Estrutura de repetição
+                    print("\n5. Qual estrutura de repetição percorre um número definido de vezes em Python?")
+                    print("a) while")
+                    print("b) switch")
+                    print("c) if")
+                    print("d) for")
+
+                    while True:
+                        try:
+                            resp = input("Sua resposta: ").lower().strip()
+                            if len(resp) != 1:
+                                raise ValueError
+                            elif resp not in alternativas:
+                                raise ValueError
+                            break
+                        except ValueError:
+                            print("Opção inválida. Tente novamente.")
+
+                    if resp == 'd':
+                        pontuacao += 2
+
+                    # Resultado final
+                    print(f"\n✅ Você acertou {pontuacao/2:.0f} de 5 perguntas! Sua pontuação foi {pontuacao}")
+
+                    if pontuacao == 10:
+                        print("Parabéns! Você mandou muito bem!")
+                    elif pontuacao >= 6:
+                        print("Bom trabalho! Mas dá pra melhorar ainda mais.")
+                    else:
+                        print("Hora de revisar os conteúdos. Você consegue!")
+
+                    while True:
+                        try:
+                            decisaoQuiz = int(input("Deseja realizar novamente? 1. SIM / 2. NÃO"))
+                            if decisaoQuiz <= 0 or decisaoQuiz >= 3:
+                                raise ValueError
+                            break
+                        except ValueError:
+                            print("Opção inválida. Tente novamente.")
+                            
+                                
 
             #Retornar ao menu principal
             elif opcaoAluno == 0:
