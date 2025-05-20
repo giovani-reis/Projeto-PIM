@@ -139,9 +139,16 @@ while True:
                     if chave == 0:
                         break
                     while chave not in alunos:
-                        chave = int(input(f"Código {chave} não foi encontrado!\nTente novamente outro número ou digite '0' para sair: "))
-                        if chave == 0:
-                            break 
+                        try:
+                            chave = int(input(f"Código {chave} não foi encontrado!\nTente novamente outro número ou digite '0' para sair: "))
+                            if chave == 0:
+                                break 
+                            elif chave not in alunos: #É nescessário fazer a validação novamente para caso dê erro
+                                raise ValueError
+                            
+                            break
+                        except ValueError:
+                            print("\nEntrada inválida! Digie um número inteiro que esteja na lista")
                         
                     if chave == 0:
                         break   
@@ -238,7 +245,7 @@ while True:
             
             print("1. Boas práticas de Segurança Digital")
             print("2. LGPD")
-            print("3. Ética, Cidadania e Sustentabilidade")
+            print("3. Logica de programção com Python")
             print("0. Sair para o menu principal")
 
             while True:
@@ -250,7 +257,7 @@ while True:
                 except ValueError:
                     print("\n\n1. Boas práticas de Segurança Digital")
                     print("2. LGPD")
-                    print("3. Ética, Cidadania e Sustentabilidade")
+                    print("3. Logica de programção com Python")
                     print("0. Sair para o menu principal")
                     print("\nEntrada inválida! Digite um número inteiro que está na lista")
 
@@ -376,18 +383,18 @@ while True:
                     elif opc2 == 0:
                         break
 
-            #ÉTICA, CIDADANIA E SUSTENTABILIDADE
+            #Logica de programção com Python
             elif opcaoAluno == 3:
                 while True:    
 
                     #Declarando variáveis
                     opc3 = ""
 
-                    print("\n\n#############################################\nBem vindo às Aulas sobre Ética, Cidadania e Sustentabilidade")
+                    print("\n\n#############################################\nBem vindo às Aulas sobre Logica de programção com Python")
 
                     print("\n1. Ética no uso da tecnologia e responsabilidade profissional")
                     print("2. Cidadania digital: comportamento consciente e seguro online")
-                    print("3. Sustentabilidade na TI: boas práticas ambientais e sociais")
+                    print("3. Estruturas de decisão e repetição em Python")
                     print("0. Sair para selecionar outra aula")
                     
                     while True:
@@ -399,49 +406,56 @@ while True:
                         except ValueError:
                             print("\n1. Ética no uso da tecnologia e responsabilidade profissional")
                             print("2. Cidadania digital: comportamento consciente e seguro online")
-                            print("3. Sustentabilidade na TI: boas práticas ambientais e sociais")
+                            print("3. Estruturas de decisão e repetição em Python")
                             print("0. Sair para selecionar outra aula")
                             print("\nEntrada inválida! Digite um número inteiro que está na lista")
 
                     #Aula 1
                     if opc3 == 1:
-                        print("\n\nÉtica no uso da tecnologia e responsabilidade profissional 🧠")
-                        print("\nTrabalhar com tecnologia não envolve apenas habilidades técnicas — também exige responsabilidade ética. "
-                        "\nProfissionais de TI têm acesso a informações sensíveis, tomam decisões com grande impacto e muitas vezes "
-                        "\nestão por trás de sistemas que afetam milhares de pessoas.\n\n"
-                        "\nÉtica na TI significa agir com integridade, respeitar a privacidade dos usuários, evitar o uso indevido de dados "
-                        "\ne não se beneficiar de falhas ou brechas em sistemas. Manipular resultados, invadir contas ou espalhar software ilegal "
-                        "são atitudes antiéticas que comprometem a confiança no setor.\n\n"
-                        "📌 Dica prática: Sempre se pergunte: “Se todos soubessem que eu fiz isso, ainda pareceria certo?” "
-                        "\nssa reflexão ajuda a manter a ética no centro das suas ações.\n")
+                        print("\n\nO que é lógica de programação e sua importância 🧠")
+                        print("\nLógica de programação é a base para escrever códigos que funcionam. "
+                        "\nEla envolve o raciocínio necessário para resolver problemas de forma estruturada, "
+                        "seguindo uma sequência lógica de ações.\n\n"
+                        "Aprender lógica ajuda a entender como pensar como um computador — passo a passo, "
+                        "\nde maneira clara e objetiva. Isso é essencial em qualquer linguagem de programação, "
+                        "inclusive no Python.\n\n"
+                        "📌 Dica prática: Antes de programar, tente resolver o problema no papel. Rascunhe a solução usando passos simples.\n")
                         input("Digite Enter para retornar. ")  
 
                     #Aula 2
                     elif opc3 == 2:
-                        print("\n\nCidadania digital: comportamento consciente e seguro online 🧠")
-                        print("\nCidadania digital vai além de saber usar redes sociais ou e-mail. Trata-se de agir com respeito, empatia e "
-                        "\nresponsabilidade no mundo virtual. Isso inclui combater fake news, respeitar os direitos autorais, evitar discursos de ódio "
-                        "\ne manter a segurança online.\n\n"
-                        "No campo da tecnologia, ser um cidadão digital exemplar também significa promover a inclusão, garantir acessibilidade nas "
-                        "\nferramentas que você desenvolve e orientar outras pessoas sobre boas práticas.\n\n"
-                        "📌 Dica prática: Antes de compartilhar algo na internet, verifique a fonte e pense no \nimpacto que aquela informação pode causar. "
-                        "\nE lembre-se: atrás de cada perfil, existe uma pessoa real.\n")
+                        print("\n\nConceitos básicos: variáveis, tipos de dados e operadores 🧠")
+                        print("\nUma variável é como uma “caixinha” onde você guarda informações no programa. "
+                        "Você pode guardar um número, uma palavra, ou um valor lógico (True/False).\n\n"
+                        "Exemplos:\n"
+                        "- `nome = 'João'` (string)\n"
+                        "- `idade = 25` (inteiro)\n"
+                        "- `altura = 1.75` (float)\n"
+                        "- `ativo = True` (booleano)\n\n"
+                        "Operadores são usados para fazer cálculos e comparações, \ncomo `+`, `-`, `*`, `/`, `==`, `!=`, `>`, `<`.\n\n"
+                        "📌 Dica prática: Use nomes de variáveis que façam \nsentido, como `salario`, `media`, `usuario_ativo`, etc.\n")
                         input("Digite Enter para retornar. ")  
 
                     #Aula 3
                     elif opc3 == 3:
-                        print("\n\nSustentabilidade na TI: boas práticas ambientais e sociais 🧠")
-                        print("\nA área de TI também tem responsabilidade ambiental e social. O uso de energia, o descarte de equipamentos eletrônicos "
-                        "\ne o ciclo de vida de softwares e hardwares impactam diretamente o planeta.\n\n"
-                        "Boas práticas incluem o uso eficiente da energia, o reaproveitamento ou descarte adequado de equipamentos, a escolha de "
-                        "\nfornecedores sustentáveis e o desenvolvimento de soluções que ajudem pessoas e comunidades. Sustentabilidade também passa "
-                        "\npela inclusão e pela equidade no acesso à tecnologia.\n\n"
-                        "📌 Dica prática: Descarte eletrônicos em pontos de coleta apropriados, use o modo escuro para economizar energia "
-                        "\ne dê preferência a equipamentos com selo de eficiência energética.\n")
+                        print("\n\nEstruturas de decisão e repetição em Python 🧠")
+                        print("\nCom estruturas de decisão (`if`, `elif`, `else`), você faz o programa tomar decisões com base em condições. "
+                        "\nJá com estruturas de repetição (`for`, `while`), você repete ações várias vezes.\n\n"
+                        "Exemplo de decisão:\n"
+                        "*******python*******\nidade = 18\nif idade >= 18:\n    print('Maior de idade')\nelse:\n    print('Menor de idade')\n*****************************\n\n"
+                        "Exemplo de repetição:\n"
+                        "*******python*******\nfor i in range(5):\n    print(i)\n******************************\n\n"
+                        "📌 Dica prática: Teste pequenos códigos no terminal ou em um editor online como o Replit ou Thonny.\n")
+
                         input("Digite Enter para retornar. ")  
 
                     elif opc3 == 0:
                         break
+            
+            #QUIZ
+            elif opcaoAluno == 4:
+                print("***QUIZ***")
+                
 
             #Retornar ao menu principal
             elif opcaoAluno == 0:
